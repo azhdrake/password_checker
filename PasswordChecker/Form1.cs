@@ -19,7 +19,17 @@ namespace PasswordChecker
 
     private void button1_Click(object sender, EventArgs e)
     {
-
+      String userPassword = txtPassword.Text;
+      if(userPassword.Length >= 10)
+      {
+        lblStrength.Text = "Strong!";
+        BackColor = Color.GreenYellow;
+      }
+      else if (userPassword.Length < 10)
+      {
+        lblStrength.Text = "Weak!";
+        BackColor = Color.Red;
+      }
     }
   }
 }

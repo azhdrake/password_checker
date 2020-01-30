@@ -29,7 +29,7 @@
     private void InitializeComponent()
     {
       this.button1 = new System.Windows.Forms.Button();
-      this.textBox1 = new System.Windows.Forms.TextBox();
+      this.txtPassword = new System.Windows.Forms.TextBox();
       this.label1 = new System.Windows.Forms.Label();
       this.lblStrength = new System.Windows.Forms.Label();
       this.SuspendLayout();
@@ -44,13 +44,13 @@
       this.button1.UseVisualStyleBackColor = true;
       this.button1.Click += new System.EventHandler(this.button1_Click);
       // 
-      // textBox1
+      // txtPassword
       // 
-      this.textBox1.Location = new System.Drawing.Point(265, 31);
-      this.textBox1.Name = "textBox1";
-      this.textBox1.PasswordChar = '*';
-      this.textBox1.Size = new System.Drawing.Size(202, 31);
-      this.textBox1.TabIndex = 1;
+      this.txtPassword.Location = new System.Drawing.Point(265, 31);
+      this.txtPassword.Name = "txtPassword";
+      this.txtPassword.PasswordChar = '*';
+      this.txtPassword.Size = new System.Drawing.Size(202, 31);
+      this.txtPassword.TabIndex = 1;
       // 
       // label1
       // 
@@ -76,7 +76,7 @@
       this.ClientSize = new System.Drawing.Size(499, 171);
       this.Controls.Add(this.lblStrength);
       this.Controls.Add(this.label1);
-      this.Controls.Add(this.textBox1);
+      this.Controls.Add(this.txtPassword);
       this.Controls.Add(this.button1);
       this.Name = "PasswordForm";
       this.Text = "Form1";
@@ -88,7 +88,7 @@
     #endregion
 
     private System.Windows.Forms.Button button1;
-    private System.Windows.Forms.TextBox textBox1;
+    private System.Windows.Forms.TextBox txtPassword;
     private System.Windows.Forms.Label label1;
     private System.Windows.Forms.Label lblStrength;
   }
