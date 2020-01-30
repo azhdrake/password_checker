@@ -19,16 +19,54 @@ namespace PasswordChecker
 
     private void button1_Click(object sender, EventArgs e)
     {
+      bool specialChar = false;
+      bool lengthTen = false;
+      bool letters = false;
+      bool number = false;
+      bool capitalChar = false;
+      bool lowerChar = false;
+
       String userPassword = txtPassword.Text;
-      if(userPassword.Length >= 10)
+
+      if (userPassword.Any(char.IsDigit))
       {
-        lblStrength.Text = "Strong!";
-        BackColor = Color.GreenYellow;
+        number = true;
       }
-      else if (userPassword.Length < 10)
+      if (userPassword.Any(char.IsLetter))
       {
-        lblStrength.Text = "Weak!";
-        BackColor = Color.Red;
+        letters = true;
+      }
+      if (userPassword.Any(char.IsLower))
+      {
+        lowerChar = true;
+      }
+      if (userPassword.Any(char.IsUpper))
+      {
+        capitalChar = true;
+      }
+      if (!userPassword.Any(char.IsLetterOrDigit))
+      {
+        specialChar = true;
+      }
+      if (userPassword.Length > 10)
+      {
+        lengthTen = true;
+      }
+
+        specialChar = true;
+      bool[] checksList = new bool[] { number, letters, lowerChar, capitalChar, specialChar, lengthTen };
+
+      int counter = 0;
+
+      foreach(bool check in checksList)
+      {
+        if (check)
+        {
+          counter ++;
+        }
+      }
+
+
       }
     }
   }
