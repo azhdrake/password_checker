@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace PasswordChecker
 {
-  public partial class Form1 : Form
+  public partial class PasswordForm : Form
   {
-    public Form1()
+    public PasswordForm()
     {
       InitializeComponent();
+    }
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+
     }
   }
 }
