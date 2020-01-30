@@ -18,6 +18,7 @@ namespace PasswordChecker
     }
 
     private void button1_Click(object sender, EventArgs e)
+      //Bools are to keep track of the ways a password can be secure.
     {
       bool specialChar = false;
       bool lengthTen = false;
@@ -27,43 +28,39 @@ namespace PasswordChecker
       bool space = false;
 
       String userPassword = txtPassword.Text;
-      String testing = "";
 
+      //sets bool to true if that security measure is accounted for in the user's password
       if (userPassword.Any(char.IsDigit))
       {
         number = true;
-        testing += "Digit ";
       }
       if (userPassword.Any(char.IsLower))
       {
         lowerChar = true;
-        testing += "Lower ";
       }
       if (userPassword.Any(char.IsUpper))
       {
         capitalChar = true;
-        testing += "Capital ";
       }
       if (userPassword.Any(char.IsSymbol) || userPassword.Any(char.IsPunctuation))
       {
         specialChar = true;
-        testing += "Special ";
       }
       if (userPassword.Length > 10)
       {
         lengthTen = true;
-        testing += "Length ";
       }
       if (userPassword.Any(char.IsWhiteSpace))
       {
         space = true;
-        testing += "Space ";
       }
 
+      //adds bools to array to make them more countable.
       bool[] checksList = new bool[] { number, lowerChar, capitalChar, specialChar, lengthTen, space};
 
       int checkCounter = 0;
 
+      // checks how many security measures are accounted for
       foreach(bool check in checksList)
       {
         if (check)
@@ -72,6 +69,7 @@ namespace PasswordChecker
         }
       }
 
+      // looks at the number of security measures used and rates them.
       if (checkCounter <= 2)
       {
         lblStrength.Text = "Bad!";
