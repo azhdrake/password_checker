@@ -18,50 +18,48 @@ namespace PasswordChecker
     }
 
     private void button1_Click(object sender, EventArgs e)
+      { 
       //Bools are to keep track of the ways a password can be secure.
-    {
-      bool specialChar = false;
-      bool lengthTen = false;
-      bool number = false;
-      bool capitalChar = false;
-      bool lowerChar = false;
-      bool space = false;
+      Dictionary<String, bool> ChecksDict = new Dictionary<String, bool>();
+      ChecksDict.Add("specialChar", false);
+      ChecksDict.Add("lengthTen", false);
+      ChecksDict.Add("number", false);
+      ChecksDict.Add("capitalChar", false);
+      ChecksDict.Add("lowerChar", false);
+      ChecksDict.Add("space", false);
 
       String userPassword = txtPassword.Text;
 
       //sets bool to true if that security measure is accounted for in the user's password
       if (userPassword.Any(char.IsDigit))
       {
-        number = true;
+        ChecksDict["number"] = true;
       }
       if (userPassword.Any(char.IsLower))
       {
-        lowerChar = true;
+        ChecksDict["lowerChar"] = true;
       }
       if (userPassword.Any(char.IsUpper))
       {
-        capitalChar = true;
+        ChecksDict["capitalChar"] = true;
       }
       if (userPassword.Any(char.IsSymbol) || userPassword.Any(char.IsPunctuation))
       {
-        specialChar = true;
+        ChecksDict["specialChar"] = true;
       }
       if (userPassword.Length > 10)
       {
-        lengthTen = true;
+        ChecksDict["lengthTen"] = true;
       }
       if (userPassword.Any(char.IsWhiteSpace))
       {
-        space = true;
+        ChecksDict["space"] = true;
       }
-
-      //adds bools to array to make them more countable.
-      bool[] checksList = new bool[] { number, lowerChar, capitalChar, specialChar, lengthTen, space};
 
       int checkCounter = 0;
 
       // checks how many security measures are accounted for
-      foreach(bool check in checksList)
+      foreach(bool check in ChecksDict.Values)
       {
         if (check)
         {
@@ -90,7 +88,6 @@ namespace PasswordChecker
         lblStrength.Text = "Very Good!";
         BackColor = Color.Green;
       }
-      MessageBox.Show(testing);
 
     }
   }
